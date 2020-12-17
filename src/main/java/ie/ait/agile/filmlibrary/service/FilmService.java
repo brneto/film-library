@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import static java.lang.String.format;
+
 @Service
 @RequiredArgsConstructor
 public class FilmService {
@@ -23,10 +25,14 @@ public class FilmService {
     }
 
     public Film addFilm(Film film) {
-        if (repository.findAllByTitle(film.getTitle()).isEmpty())
+        List<Film> films = repository.findAllByTitle(film.getTitle());
+        if (films.isEmpty()) {
             return repository.save(film);
-        else
-            throw new IllegalStateException("This film title already exists");
+        }
+        else {
+            throw new IllegalStateException(
+                    format("Film title in catalog already with id <%d>", films.get(0).getId()));
+        }
     }
 
 }

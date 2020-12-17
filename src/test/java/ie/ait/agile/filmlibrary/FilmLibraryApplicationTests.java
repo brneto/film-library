@@ -20,7 +20,7 @@ class FilmLibraryApplicationTests extends MySqlContainerBase {
     }
 
     @Test
-    void shouldHaveNoDemoWithGetAll(@Autowired WebTestClient webClient) {
+    void shouldHaveNoFilmsWithGetAll(@Autowired WebTestClient webClient) {
         webClient
                 .get()
                 .uri("/api/films/")
