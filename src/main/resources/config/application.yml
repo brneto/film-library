@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  error:
+    include-exception: on
+    include-stacktrace: never
+
+spring:
+  application:
+    name: film-library-backend
+  datasource:
+    url: jdbc:mysql://localhost:3306/filmdb?createDatabaseIfNotExist=true&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: admin
+    platform: mysql
+    initialization-mode: always
+    data: classpath:db/data-mysql.sql
+  jpa:
+    show-sql: on
+    generate-ddl: on
+    hibernate:
+      ddl-auto: create
+    properties.hibernate:
+      format_sql: true
+      use_sql_comments: true
+
+springdoc:
+  pathsToMatch: /api/films/**
+
+logging:
+  level:
+    root: debug
+    sql: trace
+    org.hibernate.type: trace

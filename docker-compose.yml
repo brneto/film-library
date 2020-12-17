@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8.0.12
+    container_name: film-library-database
+    hostname: database
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+
+  backend:
+    build: .
+    image: film-library:latest
+    ports:
+      - 5000:8080
+    container_name: film-library-backend
+    hostname: backend
+    networks:
+      - worker-net
+    restart: on-failure:5
