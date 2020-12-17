@@ -55,6 +55,11 @@ public class FilmController {
         return service.addFilm(film);
     }
 
+    @PatchMapping
+    public Film changeFilm(@Valid @RequestBody Film film) {
+        return service.findFilm(1L);
+    }
+
     @GetMapping("/films/form")
     public String getFilmForm(@Valid Film film) {
         return film.toString();
