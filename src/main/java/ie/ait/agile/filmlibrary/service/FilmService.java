@@ -1,7 +1,7 @@
-package ie.ait.ria.springrestbootstrap.service;
+package ie.ait.agile.filmlibrary.service;
 
-import ie.ait.ria.springrestbootstrap.domain.Film;
-import ie.ait.ria.springrestbootstrap.repository.FilmRepository;
+import ie.ait.agile.filmlibrary.domain.Film;
+import ie.ait.agile.filmlibrary.repository.FilmRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package ie.ait.ria.springrestbootstrap.controller;
+package ie.ait.agile.filmlibrary.controller;
 
-import ie.ait.ria.springrestbootstrap.domain.Film;
-import ie.ait.ria.springrestbootstrap.service.FilmService;
+import ie.ait.agile.filmlibrary.service.FilmService;
+import ie.ait.agile.filmlibrary.domain.Film;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

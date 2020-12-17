@@ -1,7 +1,7 @@
-package ie.ait.ria.springrestbootstrap;
+package ie.ait.agile.filmlibrary;
 
-import ie.ait.ria.springrestbootstrap.domain.Film;
-import ie.ait.ria.springrestbootstrap.repository.FilmRepository;
+import ie.ait.agile.filmlibrary.domain.Film;
+import ie.ait.agile.filmlibrary.repository.FilmRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,7 +23,7 @@ class FilmLibraryApplicationTests {
     void shouldHaveNoDemoWithGetAll(@Autowired WebTestClient webClient) {
         webClient
                 .get()
-                .uri("/api/demos/")
+                .uri("/api/films/")
                 .accept(APPLICATION_JSON)
                 .exchange()
                 .expectStatus().isOk()

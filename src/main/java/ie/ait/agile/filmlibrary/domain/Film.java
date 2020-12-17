@@ -1,4 +1,4 @@
-package ie.ait.ria.springrestbootstrap.domain;
+package ie.ait.agile.filmlibrary.domain;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;

@@ -1,4 +1,4 @@
-package ie.ait.ria.springrestbootstrap.config;
+package ie.ait.agile.filmlibrary.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

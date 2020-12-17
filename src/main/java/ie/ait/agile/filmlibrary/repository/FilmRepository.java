@@ -1,6 +1,6 @@
-package ie.ait.ria.springrestbootstrap.repository;
+package ie.ait.agile.filmlibrary.repository;
 
-import ie.ait.ria.springrestbootstrap.domain.Film;
+import ie.ait.agile.filmlibrary.domain.Film;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package ie.ait.ria.springrestbootstrap.config;
+package ie.ait.agile.filmlibrary.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

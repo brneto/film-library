@@ -10,13 +10,13 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=admin
 
-  backend:
-    build: .
-    image: film-library:latest
-    ports:
-      - 5000:8080
-    container_name: film-library-backend
-    hostname: backend
-    networks:
-      - worker-net
-    restart: on-failure:5
+#  backend:
+#    build: .
+#    image: film-library:latest
+#    ports:
+#      - 5000:8080
+#    container_name: film-library-backend
+#    hostname: backend
+#    networks:
+#      - worker-net
+#    restart: on-failure:5
