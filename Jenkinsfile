@@ -54,13 +54,23 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn surefire:test'
+                sh 'mvn jacoco:prepare-agent surefire:test'
+            }
+        }
+        stage('Generate reports') {
+            steps {
+                sh 'mvn jacoco:report'
             }
         }
     }
 
     post {
-        always { cleanWs() }
+        always {
+            archive '**/target/surefire-reports/*'
+            junit '**/target/surefile-reports/*.xml'
+            step([$class: 'JacocoPublisher'])
+            //cleanWs()
+        }
         success { githubStatus CommitState.SUCCESS }
         unsuccessful { githubStatus CommitState.FAILURE }
     }
