@@ -55,6 +55,16 @@ public class FilmController {
         return service.addFilm(film);
     }
 
+    @PatchMapping("/films/{id}")
+    public Film updateFilm(@Valid @RequestBody Film film) {
+        return service.updateFilm(film);
+    }
+
+    @DeleteMapping("/films/{id}")
+    public Film deleteFilm(@PathVariable Long id) {
+        return service.deleteFilm(id);
+    }
+
     @GetMapping("/films/form")
     public String getFilmForm(@Valid Film film) {
         return film.toString();

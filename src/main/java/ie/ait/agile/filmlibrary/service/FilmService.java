@@ -39,7 +39,7 @@ public class FilmService {
         throw new UnsupportedOperationException("To be implemented");
     }
 
-    public Film deleteFilm(Film film) {
+    public Film deleteFilm(Long id) {
         throw new UnsupportedOperationException("To be implemented");
     }
 
