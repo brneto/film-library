@@ -48,7 +48,6 @@ pipeline {
         }
         stage('Build') {
             steps {
-                archiveArtifacts 'artifact.properties'
                 sh 'git log -1 --pretty=%s'
                 sh 'mvn test-compile'
             }
@@ -67,7 +66,8 @@ pipeline {
 
     post {
         always {
-            archive '**/target/surefire-reports/*'
+            archiveArtifacts '**/target/surefire-reports/*'
+            archiveArtifacts '**/target/site/jacoco/*'
             junit '**/target/surefire-reports/*.xml'
             step([$class: 'JacocoPublisher'])
             //cleanWs()
