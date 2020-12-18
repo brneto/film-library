@@ -57,7 +57,7 @@ pipeline {
                 sh 'mvn jacoco:prepare-agent surefire:test'
             }
         }
-        stage('Generate reports') {
+        stage('Reports') {
             steps {
                 sh 'mvn jacoco:report'
             }
