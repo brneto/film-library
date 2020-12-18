@@ -67,7 +67,7 @@ pipeline {
     post {
         always {
             archiveArtifacts '**/target/surefire-reports/*'
-            archiveArtifacts '**/target/site/jacoco/index.html'
+            archiveArtifacts '**/target/site/jacoco'
             junit '**/target/surefire-reports/*.xml'
             step([$class: 'JacocoPublisher'])
             //cleanWs()
