@@ -16,9 +16,9 @@ public class MySqlTestContainerBase {
     }
 
     @DynamicPropertySource
-    static void mysqlProperties(DynamicPropertyRegistry registry) {
+    static void setDataSourceUrl(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.initialization-mode", () -> "never");
         registry.add("spring.datasource.url", () -> format(
-                "jdbc:tc:%s:///practise?TC_DAEMON=true;TC_TMPFS=/testtmpfs:rw",
-                IMAGE_TAG));
+                "jdbc:tc:%s:///filmdb?TC_DAEMON=true;TC_TMPFS=/testtmpfs:rw", IMAGE_TAG));
     }
 }

@@ -5,6 +5,7 @@ import ie.ait.agile.filmlibrary.repository.FilmRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static org.assertj.core.api.BDDAssertions.then;
@@ -20,6 +21,7 @@ class FilmLibraryApplicationTests extends MySqlTestContainerBase {
     }
 
     @Test
+    @Sql("/db/add-one-film.sql")
     void shouldHaveNoFilmsWithGetAll(@Autowired WebTestClient webClient) {
         webClient
                 .get()
