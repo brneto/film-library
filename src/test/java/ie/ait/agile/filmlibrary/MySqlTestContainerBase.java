@@ -6,7 +6,7 @@ import org.testcontainers.containers.MySQLContainer;
 
 import static java.lang.String.format;
 
-public class MySqlContainerBase {
+public class MySqlTestContainerBase {
     static final String IMAGE_TAG = "mysql:8.0.12";
 
     static {
