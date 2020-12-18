@@ -36,11 +36,16 @@ public class FilmService {
     }
 
     public Film updateFilm(Film film) {
-        throw new UnsupportedOperationException("To be implemented");
+        Film filmToUpdate = findFilm(film.getId());
+        filmToUpdate.setTitle(film.getTitle());
+        filmToUpdate.setSynopsis(film.getSynopsis());
+        return repository.save(filmToUpdate);
     }
 
     public Film deleteFilm(Long id) {
-        throw new UnsupportedOperationException("To be implemented");
+        Film film = findFilm(id);
+        repository.deleteById(id);
+        return film;
     }
 
 }
