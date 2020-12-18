@@ -36,12 +36,16 @@ public class FilmController {
         return service.getFilmList();
     }
 
+    @Operation(tags = "films", summary = "Find an existing film by id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Element founded"),
+            @ApiResponse(responseCode = "404", description = "Provided not existing Film Id")})
     @GetMapping("/films/{id}")
     public Film getFilm(@PathVariable Long id) {
         try {
             return service.findFilm(id);
         } catch (NoSuchElementException ex) {
-            throw new ResponseStatusException(NOT_FOUND, "Provide correct Film Id", ex);
+            throw new ResponseStatusException(NOT_FOUND, "Existing film id not provided", ex);
         }
     }
 
@@ -55,14 +59,22 @@ public class FilmController {
         return service.addFilm(film);
     }
 
+    @Operation(tags = "films", summary = "Update existing film")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Entry updated"),
+            @ApiResponse(responseCode = "404", description = "Provided not existing Film Id")})
     @PatchMapping("/films/{id}")
     public Film updateFilm(@Valid @RequestBody Film film) {
         return service.updateFilm(film);
     }
 
+    @Operation(tags = "films", summary = "Delete existing film")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Entry deleted"),
+            @ApiResponse(responseCode = "404", description = "Provided not existing Film Id")})
     @DeleteMapping("/films/{id}")
-    public Film deleteFilm(@PathVariable Long id) {
-        return service.deleteFilm(id);
+    public void deleteFilm(@PathVariable Long id) {
+        service.deleteFilm(id);
     }
 
     @GetMapping("/films/form")

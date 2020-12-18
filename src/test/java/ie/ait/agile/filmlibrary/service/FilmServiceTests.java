@@ -131,20 +131,16 @@ public class FilmServiceTests {
     @Test
     void shouldDeleteAFilmById() {
         // given
-        String titleUnderTest = "titleTest";
         Film filmUnderTest = mock(Film.class);
         given(filmUnderTest.getId()).willReturn(2L);
-        given(filmUnderTest.getTitle()).willReturn(titleUnderTest);
         given(repository.findById(eq(2L))).willReturn(Optional.of(filmUnderTest));
-        given(repository.save(any(Film.class))).willReturn(filmUnderTest);
         willDoNothing().given(repository).deleteById(anyLong());
 
         // when
-        Film expected = service.deleteFilm(2L);
+        service.deleteFilm(2L);
 
         // then
         BDDMockito.then(repository).should().deleteById(eq(2L));
-        then(expected.getTitle()).isEqualTo(titleUnderTest);
     }
 
 }

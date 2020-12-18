@@ -42,10 +42,8 @@ public class FilmService {
         return repository.save(filmToUpdate);
     }
 
-    public Film deleteFilm(Long id) {
-        Film film = findFilm(id);
-        repository.deleteById(id);
-        return film;
+    public void deleteFilm(Long id) {
+        repository.deleteById(findFilm(id).getId());
     }
 
 }
