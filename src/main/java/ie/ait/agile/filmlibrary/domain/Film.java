@@ -20,7 +20,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Entity
 @Validated
 @Data
-@NoArgsConstructor(access = PROTECTED)
+@NoArgsConstructor
 public class Film {
 
     @Schema(description = "Unique identifier of the film.",

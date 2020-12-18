@@ -35,8 +35,8 @@ public class FilmServiceTests {
     void shouldRegisterANonExistingFilm() {
         // given
         String titleUnderTest = "titleTest";
-        Film filmUnderTest = mock(Film.class);
-        given(filmUnderTest.getTitle()).willReturn(titleUnderTest);
+        Film filmUnderTest = new Film();
+        filmUnderTest.setTitle(titleUnderTest);
         given(repository.findAllByTitle(anyString())).willReturn(List.of());
         given(repository.save(eq(filmUnderTest))).willReturn(filmUnderTest);
 
@@ -51,8 +51,8 @@ public class FilmServiceTests {
     void shouldFailToRegisterAnExistingFilm() {
         // given
         String titleUnderTest = "titleTest";
-        Film filmUnderTest = mock(Film.class);
-        given(filmUnderTest.getTitle()).willReturn(titleUnderTest);
+        Film filmUnderTest = new Film();
+        filmUnderTest.setTitle(titleUnderTest);
         given(repository.findAllByTitle(anyString())).willReturn(List.of(filmUnderTest));
 
         // when
@@ -67,10 +67,10 @@ public class FilmServiceTests {
         // given
         String titleUnderTest1 = "titleTest1";
         String titleUnderTest2 = "titleTest2";
-        Film filmUnderTest1 = mock(Film.class);
-        Film filmUnderTest2 = mock(Film.class);
-        given(filmUnderTest1.getTitle()).willReturn(titleUnderTest1);
-        given(filmUnderTest2.getTitle()).willReturn(titleUnderTest2);
+        Film filmUnderTest1 = new Film();
+        Film filmUnderTest2 = new Film();
+        filmUnderTest1.setTitle(titleUnderTest1);
+        filmUnderTest2.setTitle(titleUnderTest2);
         given(repository.findAll()).willReturn(List.of(filmUnderTest1, filmUnderTest2));
 
         // when
@@ -86,8 +86,8 @@ public class FilmServiceTests {
     void shouldFindARegisteredFilmById() {
         // given
         String titleUnderTest = "titleTest";
-        Film filmUnderTest = mock(Film.class);
-        given(filmUnderTest.getTitle()).willReturn(titleUnderTest);
+        Film filmUnderTest = new Film();
+        filmUnderTest.setTitle(titleUnderTest);
         given(repository.findById(anyLong())).willReturn(Optional.of(filmUnderTest));
 
         // when
@@ -131,8 +131,8 @@ public class FilmServiceTests {
     @Test
     void shouldDeleteAFilmById() {
         // given
-        Film filmUnderTest = mock(Film.class);
-        given(filmUnderTest.getId()).willReturn(2L);
+        Film filmUnderTest = new Film();
+        filmUnderTest.setId(2L);
         given(repository.findById(eq(2L))).willReturn(Optional.of(filmUnderTest));
         willDoNothing().given(repository).deleteById(anyLong());
 

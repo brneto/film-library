@@ -21,7 +21,6 @@ class FilmLibraryApplicationTests extends MySqlTestContainerBase {
     }
 
     @Test
-    @Sql("/db/add-one-film.sql")
     void shouldHaveNoFilmsWithGetAll(@Autowired WebTestClient webClient) {
         webClient
                 .get()
@@ -30,7 +29,7 @@ class FilmLibraryApplicationTests extends MySqlTestContainerBase {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBodyList(Film.class)
-                .hasSize(1);
+                .hasSize(0);
     }
 
 }

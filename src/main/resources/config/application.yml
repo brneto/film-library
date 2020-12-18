@@ -24,7 +24,11 @@ spring:
       use_sql_comments: true
 
 springdoc:
+  override-with-generic-response: false
+  default-produces-media-type: application/json
   pathsToMatch: /api/films/**
+  api-docs:
+    path: /api-docs
 
 logging:
   level:
