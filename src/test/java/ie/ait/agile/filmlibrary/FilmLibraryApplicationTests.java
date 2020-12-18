@@ -28,7 +28,7 @@ class FilmLibraryApplicationTests extends MySqlContainerBase {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBodyList(Film.class)
-                .hasSize(0);
+                .hasSize(1);
     }
 
 }
