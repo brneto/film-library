@@ -48,6 +48,7 @@ pipeline {
         }
         stage('Build') {
             steps {
+                archiveArtifacts 'artifact.properties'
                 sh 'git log -1 --pretty=%s'
                 sh 'mvn test-compile'
             }
