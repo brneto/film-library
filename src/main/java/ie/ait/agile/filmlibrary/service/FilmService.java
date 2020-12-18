@@ -35,4 +35,12 @@ public class FilmService {
         }
     }
 
+    public Film updateFilm(Film film) {
+        throw new UnsupportedOperationException("To be implemented");
+    }
+
+    public Film deleteFilm(Film film) {
+        throw new UnsupportedOperationException("To be implemented");
+    }
+
 }
