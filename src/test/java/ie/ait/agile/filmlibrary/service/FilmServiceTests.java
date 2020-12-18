@@ -109,6 +109,7 @@ public class FilmServiceTests {
         thenThrownBy(expected).isExactlyInstanceOf(NoSuchElementException.class);
     }
 
+    @Test
     void shouldUpdateARegisteredFilm() {
         // given
         String titleUnderTest = "titleTest";
@@ -123,10 +124,11 @@ public class FilmServiceTests {
 
         // then
         BDDMockito.then(filmUnderTest).should().setTitle(anyString());
-        BDDMockito.then(filmUnderTest).should().setSynopsis(anyString());
+        BDDMockito.then(filmUnderTest).should().setSynopsis(isNull());
         then(expected.getTitle()).isEqualTo(titleUnderTest);
     }
 
+    @Test
     void shouldDeleteAFilmById() {
         // given
         String titleUnderTest = "titleTest";
