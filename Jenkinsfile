@@ -54,9 +54,7 @@ pipeline {
         }
         stage('Tests') {
             steps {
-                sh 'docker-compose up -d db'
-                sh 'mvn verify'
-                sh 'docker-compose down'
+                sh 'mvn jacoco:prepare-agent surefire:test'
             }
         }
         stage('Test Reports') {
