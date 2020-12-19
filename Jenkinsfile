@@ -21,6 +21,7 @@ void githubStatus(CommitState state) {
     def repoUrl = scm.userRemoteConfigs[0].url
     def message = buildStatusMessage(currentBuild, state)
     println repoUrl
+    println env.GIT_URL
     step([
             $class: "GitHubCommitStatusSetter",
             reposSource: [$class: "ManuallyEnteredRepositorySource", url: repoUrl],
