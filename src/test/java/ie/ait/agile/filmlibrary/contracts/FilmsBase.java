@@ -22,7 +22,7 @@ public abstract class FilmsBase extends ContractsSetup {
     @BeforeEach
     void setUp() {
         Film filmUnderTest = new Film();
-        filmUnderTest.setId(1L);
+        filmUnderTest.etId(1L);
         filmUnderTest.setTitle("Call of the wild");
         filmUnderTest.setSynopsis("A vibrant story of Buck, a big and kindhearted dog.");
 
