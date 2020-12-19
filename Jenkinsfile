@@ -89,6 +89,7 @@ pipeline {
         }
         success { githubStatus CommitState.SUCCESS }
         unsuccessful {
+            sh 'docker-compose down'
             sh 'mvn spring-boot:stop'
             githubStatus CommitState.FAILURE
         }
