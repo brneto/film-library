@@ -2,8 +2,6 @@ package ie.ait.agile.filmlibrary.service;
 
 import ie.ait.agile.filmlibrary.domain.Film;
 import ie.ait.agile.filmlibrary.repository.FilmRepository;
-import org.assertj.core.api.BDDAssertions;
-import org.assertj.core.api.ThrowableAssert;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;

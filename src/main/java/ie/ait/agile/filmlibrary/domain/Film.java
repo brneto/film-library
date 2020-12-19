@@ -1,8 +1,6 @@
 package ie.ait.agile.filmlibrary.domain;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -14,7 +12,6 @@ import javax.persistence.Lob;
 import javax.validation.constraints.NotBlank;
 
 import static javax.persistence.GenerationType.IDENTITY;
-import static lombok.AccessLevel.PROTECTED;
 
 @Schema(description = "Class representing a film title in the application.")
 @Entity

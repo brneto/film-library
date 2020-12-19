@@ -5,7 +5,6 @@ import ie.ait.agile.filmlibrary.repository.FilmRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static org.assertj.core.api.BDDAssertions.then;
@@ -13,7 +12,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-class FilmLibraryApplicationTests extends MySqlTestContainerBase {
+class FilmLibraryApplicationIT {
 
     @Test
     void shouldContextLoads(@Autowired FilmRepository filmRepository) {
@@ -29,7 +28,7 @@ class FilmLibraryApplicationTests extends MySqlTestContainerBase {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBodyList(Film.class)
-                .hasSize(0);
+                .hasSize(1);
     }
 
 }

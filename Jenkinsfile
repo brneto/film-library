@@ -52,12 +52,22 @@ pipeline {
                 sh 'mvn test-compile'
             }
         }
-        stage('Test') {
+        stage('Unit Tests') {
             steps {
                 sh 'mvn jacoco:prepare-agent surefire:test'
             }
         }
-        stage('Report') {
+        stage('Integration Tests') {
+            steps {
+                sh 'mvn spring-boot:start failsafe:integration-test'
+            }
+        }
+        stage('API Documentation') {
+            steps {
+                sh 'mvn springdoc-openapi:generate spring-boot:stop'
+            }
+        }
+        stage('Tests Report') {
             steps {
                 sh 'mvn jacoco:report'
             }
@@ -69,6 +79,7 @@ pipeline {
             archiveArtifacts '**/target/surefire-reports/*'
             archiveArtifacts '**/target/site/jacoco/**'
             junit '**/target/surefire-reports/*.xml'
+            junit '**/target/failsafe-reports/*.xml'
             step([$class: 'JacocoPublisher'])
             //cleanWs()
         }
