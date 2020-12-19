@@ -70,7 +70,7 @@ pipeline {
             archiveArtifacts '**/target/site/jacoco/**'
             junit '**/target/surefire-reports/*.xml'
             step([$class: 'JacocoPublisher'])
-            cleanWs()
+            //cleanWs()
         }
         success { githubStatus CommitState.SUCCESS }
         unsuccessful { githubStatus CommitState.FAILURE }
