@@ -6,7 +6,7 @@
 
     <groupId>ie.ait.agile</groupId>
     <artifactId>film-library</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>Film Library</name>
     <description>Backend Restful API for a film library system</description>
 
