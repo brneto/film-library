@@ -14,11 +14,15 @@ System to manager the home film library. This project is a backend restful API w
 ```shell
 $ cd film-library
 ```
-2. Build and run your app with Compose
+3. Build and run your app with Compose
 ```shell
-$ docker-compose up -d 
+$ docker-compose up 
 ```
-3. Stop and remove containers, networks, images, and volumes
+5. Stop containers
+```
+Press Ctrl+C
+```
+4. Remove containers, networks, images, and volumes
 ```shell
 $ docker-compose down
 ```
