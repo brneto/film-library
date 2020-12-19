@@ -22,8 +22,7 @@ void githubStatus(CommitState state) {
     def message = buildStatusMessage(currentBuild, state)
     step([
             $class: "GitHubCommitStatusSetter",
-            reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/brneto/film-library"],
-            contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "ci/jenkins/build-status"],
+            reposSource: [$class: "ManuallyEnteredRepositorySource", url: repoUrl],
             errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
             statusResultSource: [
                     $class : "ConditionalStatusResultSource",
