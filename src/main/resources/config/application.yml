@@ -3,8 +3,9 @@ server:
   error:
     include-exception: on
     include-stacktrace: never
-
 spring:
+  main:
+    banner-mode: off
   application:
     name: film-library-backend
   datasource:

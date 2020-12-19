@@ -1,5 +1,5 @@
 # Film Library Backend
-![Build Status](https://img.shields.io/jenkins/build?jobUrl=http://ec2-34-244-11-136.eu-west-1.compute.amazonaws.com/job/film-library-ci/&style=for-the-badge)
+![Build Status](https://img.shields.io/jenkins/build?jobUrl=http://ec2-34-244-110-62.eu-west-1.compute.amazonaws.com/job/film-library-ci/&style=for-the-badge)
 
 System to manager the home film library. This project is a backend restful API with Spring Boot 2.
 
