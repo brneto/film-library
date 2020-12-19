@@ -20,11 +20,9 @@ static String buildStatusMessage(Object build, CommitState state) {
 void githubStatus(CommitState state) {
     def repoUrl = scm.userRemoteConfigs[0].url
     def message = buildStatusMessage(currentBuild, state)
-    println repoUrl
-    println env.GIT_URL
     step([
             $class: "GitHubCommitStatusSetter",
-            reposSource: [$class: "ManuallyEnteredRepositorySource", url: repoUrl],
+            reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/brneto/film-library"],
             contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "ci/jenkins/build-status"],
             errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
             statusResultSource: [
