@@ -59,6 +59,7 @@ pipeline {
         }
         stage('Integration Tests') {
             steps {
+                sh 'docker-compose up db'
                 sh 'mvn spring-boot:start failsafe:integration-test'
             }
         }
