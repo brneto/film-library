@@ -59,13 +59,13 @@ pipeline {
         }
         stage('Integration Tests') {
             steps {
-                sh 'docker-compose up -d db'
-                sh 'mvn spring-boot:start failsafe:integration-test'
+                sh 'mvn failsafe:integration-test'
             }
         }
         stage('API Documentation') {
             steps {
-                sh 'mvn springdoc-openapi:generate spring-boot:stop'
+                sh 'docker-compose up -d db'
+                sh 'mvn spring-boot:start springdoc-openapi:generate spring-boot:stop'
                 sh 'docker-compose down'
             }
         }
@@ -89,8 +89,8 @@ pipeline {
         }
         success { githubStatus CommitState.SUCCESS }
         unsuccessful {
-            sh 'docker-compose down'
             sh 'mvn spring-boot:stop'
+            sh 'docker-compose down'
             githubStatus CommitState.FAILURE
         }
     }

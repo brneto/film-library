@@ -12,7 +12,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-class FilmLibraryApplicationIT {
+class FilmLibraryApplicationIT extends MySqlTestContainerBase {
 
     @Test
     void shouldContextLoads(@Autowired FilmRepository filmRepository) {
@@ -28,7 +28,7 @@ class FilmLibraryApplicationIT {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBodyList(Film.class)
-                .hasSize(1);
+                .hasSize(0);
     }
 
 }
