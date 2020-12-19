@@ -77,6 +77,8 @@ pipeline {
     post {
         always {
             archiveArtifacts '**/target/surefire-reports/*'
+            archiveArtifacts '**/target/failsafe-reports/*'
+            archiveArtifacts '**/target/openapi-spec/**'
             archiveArtifacts '**/target/site/jacoco/**'
             junit '**/target/surefire-reports/*.xml'
             junit '**/target/failsafe-reports/*.xml'
