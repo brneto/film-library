@@ -88,6 +88,9 @@ pipeline {
             //cleanWs()
         }
         success { githubStatus CommitState.SUCCESS }
-        unsuccessful { githubStatus CommitState.FAILURE }
+        unsuccessful {
+            sh 'mvn spring-boot:stop'
+            githubStatus CommitState.FAILURE
+        }
     }
 }
