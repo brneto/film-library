@@ -67,19 +67,12 @@ pipeline {
     post {
         always {
             archiveArtifacts '**/target/surefire-reports/*'
-            archiveArtifacts '**/target/failsafe-reports/*'
-            archiveArtifacts '**/target/openapi-spec/**'
             archiveArtifacts '**/target/site/jacoco/**'
             junit '**/target/surefire-reports/*.xml'
-            junit '**/target/failsafe-reports/*.xml'
             step([$class: 'JacocoPublisher'])
             //cleanWs()
         }
         success { githubStatus CommitState.SUCCESS }
-        unsuccessful {
-            sh 'mvn spring-boot:stop'
-            sh 'docker-compose down'
-            githubStatus CommitState.FAILURE
-        }
+        unsuccessful { githubStatus CommitState.FAILURE }
     }
 }
