@@ -52,24 +52,14 @@ pipeline {
                 sh 'mvn test-compile'
             }
         }
-        stage('Unit Tests') {
-            steps {
-                sh 'mvn jacoco:prepare-agent surefire:test'
-            }
-        }
-        stage('Integration Tests') {
-            steps {
-                sh 'mvn failsafe:integration-test'
-            }
-        }
-        stage('API Documentation') {
+        stage('Tests') {
             steps {
                 sh 'docker-compose up -d db'
-                sh 'mvn spring-boot:start springdoc-openapi:generate spring-boot:stop'
+                sh 'mvn verify'
                 sh 'docker-compose down'
             }
         }
-        stage('Tests Report') {
+        stage('Test Reports') {
             steps {
                 sh 'mvn jacoco:report'
             }
