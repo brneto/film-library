@@ -59,13 +59,14 @@ pipeline {
         }
         stage('Integration Tests') {
             steps {
-                sh 'docker-compose up db'
+                sh 'docker-compose up -d db'
                 sh 'mvn spring-boot:start failsafe:integration-test'
             }
         }
         stage('API Documentation') {
             steps {
                 sh 'mvn springdoc-openapi:generate spring-boot:stop'
+                sh 'docker-compose down'
             }
         }
         stage('Tests Report') {
