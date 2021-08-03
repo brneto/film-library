@@ -3,10 +3,9 @@
 
 System to manager the home film library. This project is a backend restful API with Spring Boot 2.
 
-## Prerequisites
+## Requirements
 
-- [Docker Engine](https://docs.docker.com/engine/install/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
+- :whale: [Docker Engine](https://docs.docker.com/engine/install/)
 
 ## Getting started
 
@@ -16,13 +15,13 @@ $ cd film-library
 ```
 3. Build and run your app with Compose
 ```shell
-$ docker-compose up 
+$ docker compose up --build -d 
 ```
 5. Stop containers
 ```
-Press Ctrl+C
+docker compose stop backend db
 ```
 4. Remove containers, networks, images, and volumes
 ```shell
-$ docker-compose down
+$ docker compose down
 ```
