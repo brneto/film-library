@@ -11,19 +11,17 @@ System to manager the home film library. This project is a backend restful API w
 
 ## Getting started
 
-1. Go to the directory of the project
-```shell
-$ cd film-library
-```
-3. Build and run your app with Compose
+Run following command in project root directory.
+
+1. Build and run your app with Compose
 ```shell
 $ docker compose up --build -d 
 ```
-5. Stop containers
+2. Stop containers
 ```
 docker compose stop backend db
 ```
-4. Remove containers, networks, images, and volumes
+3. Remove containers, networks, images, and volumes
 ```shell
 $ docker compose down
 ```
