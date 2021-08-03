@@ -15,7 +15,7 @@ import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TES
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_METHOD;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-class FilmLibraryApplicationTests extends MySqlTestContainerBase {
+class FilmLibraryApplicationTests extends MySqlTestContainer {
 
     @Autowired
     private WebTestClient webClient;
