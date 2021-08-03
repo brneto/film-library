@@ -20,7 +20,7 @@ public class MySqlTestContainer {
             new MySQLContainer<>(mysqlImage)
                     .withDatabaseName("filmdb")
                     .withUrlParam("TC_DAEMON", "true")
-                    .withTmpFs(singletonMap("/testtmpfs", "rw"))
+                    .withTmpFs(singletonMap("/test_tmpfs", "rw"))
                     .withReuse(true);
 
     @DynamicPropertySource
