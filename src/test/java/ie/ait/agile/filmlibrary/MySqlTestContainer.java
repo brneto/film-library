@@ -1,14 +1,15 @@
 package ie.ait.agile.filmlibrary;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MySQLContainer;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.containers.output.Slf4jLogConsumer;
 import org.testcontainers.utility.DockerImageName;
 
 import static java.util.Collections.singletonMap;
 
+@Slf4j
 public class MySqlTestContainer {
 
     private static final DockerImageName mysqlImage =
@@ -24,6 +25,7 @@ public class MySqlTestContainer {
     // https://github.com/testcontainers/testcontainers-java/issues/2352
     static {
         mysqlContainer.start();
+        mysqlContainer.followOutput(new Slf4jLogConsumer(log).withSeparateOutputStreams());
     }
 
     @DynamicPropertySource
