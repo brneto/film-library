@@ -20,6 +20,7 @@ public class MySqlTestContainer {
                     .withUrlParam("TC_DAEMON", "true")
                     .withTmpFs(singletonMap("/test_tmpfs", "rw"))
                     .withReuse(true);
+    
     // https://github.com/testcontainers/testcontainers-java/issues/2352
     static {
         mysqlContainer.start();
