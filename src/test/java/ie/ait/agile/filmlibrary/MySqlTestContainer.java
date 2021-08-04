@@ -9,19 +9,21 @@ import org.testcontainers.utility.DockerImageName;
 
 import static java.util.Collections.singletonMap;
 
-@Testcontainers
 public class MySqlTestContainer {
 
     private static final DockerImageName mysqlImage =
             DockerImageName.parse("mysql").withTag("8.0.12");
 
-    @Container
     private static final MySQLContainer<?> mysqlContainer =
             new MySQLContainer<>(mysqlImage)
                     .withDatabaseName("filmdb")
                     .withUrlParam("TC_DAEMON", "true")
                     .withTmpFs(singletonMap("/test_tmpfs", "rw"))
                     .withReuse(true);
+    // https://github.com/testcontainers/testcontainers-java/issues/2352
+    static {
+        mysqlContainer.start();
+    }
 
     @DynamicPropertySource
     static void setDataSourceUrl(DynamicPropertyRegistry registry) {
